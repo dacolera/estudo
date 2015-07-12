@@ -38,3 +38,36 @@
 
     $processor->process('image');
     var_dump($pool);
+    print '<hr>';
+
+    print "Prototype<br><br>";
+
+    $fooPrototype = new \DesignPatterns\Creational\Prototype\FooBookPrototype();
+    $barPrototype = new \DesignPatterns\Creational\Prototype\BarBookPrototype();
+
+    // now lets say we need 10,000 books of foo and 5,000 of bar ...
+
+    $inicioFoo = microtime(true);
+    for ($i = 0; $i < 1000000; $i++) {
+        $book2 = new \DesignPatterns\Creational\Prototype\FooBookPrototype();
+        $book2->setTitle('Foo Book No ' . $i);
+    }
+    echo "Tempo gasto sem o modo prototype foi de " .   (microtime(true) - $inicioFoo) . " segundos<br>";
+
+
+
+    $inicioFooClone = microtime(true);
+    for ($ix = 0; $ix < 1000000; $ix++) {
+        $book = clone $fooPrototype;
+        $book->setTitle('Foo Book No ' . $ix);
+    }
+    echo "Tempo gasto com o modo prototype foi de " .  (microtime(true) - $inicioFooClone) . " segundos<br>";
+
+
+   /* print "<br>";
+    for ($i = 0; $i < 5000; $i++) {
+        $book = clone $barPrototype;
+        $book->setTitle('Bar Book No ' . $i);
+    }
+
+    var_dump($book);*/
