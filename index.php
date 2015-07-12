@@ -64,10 +64,15 @@
     echo "Tempo gasto com o modo prototype foi de " .  (microtime(true) - $inicioFooClone) . " segundos<br>";
 
 
-   /* print "<br>";
+    print "<br>";
     for ($i = 0; $i < 5000; $i++) {
         $book = clone $barPrototype;
         $book->setTitle('Bar Book No ' . $i);
     }
+print '<hr>';
 
-    var_dump($book);*/
+    print "SimpleFactory<br>";
+    $factory = new DesignPatterns\Creational\SimpleFactory\ConcreteFactory();
+    $bicycle = $factory->createVehicle('other');
+    var_dump($bicycle);
+    print '<hr>';
