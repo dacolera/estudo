@@ -27,8 +27,9 @@
     print '<pre>'; var_dump($boat); print '<hr>';
 
     print "FactoryMethod";
-    //$makeException = new \DesignPatterns\Creational\FactoryMethod\GermanFactory();
-    //$makeException->create('spaceship');
+    $fabrica = new \DesignPatterns\Creational\FactoryMethod\ItalianFactory();
+    $bicicleta = $fabrica->create(2);
+    var_dump($bicicleta); exit;
     print '<hr>';
 
     $pool = new \DesignPatterns\Creational\Pool\Pool(

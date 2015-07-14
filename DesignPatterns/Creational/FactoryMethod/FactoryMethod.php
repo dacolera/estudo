@@ -33,7 +33,6 @@ abstract class FactoryMethod
     {
         $obj = $this->createVehicle($type);
         $obj->setColor("#f00");
-
         return $obj;
     }
 }

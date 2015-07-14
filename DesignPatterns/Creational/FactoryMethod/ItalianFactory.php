@@ -16,8 +16,10 @@ class ItalianFactory extends FactoryMethod
             case parent::CHEAP:
                 return new Bicycle();
                 break;
-            case parent::FAST:
-                return new Ferrari();
+            case parent::FAST: 
+                $obj = new Ferrari();
+                $obj->setColor('#0f0');
+                return $obj;
                 break;
             default:
                 throw new \InvalidArgumentException("$type is not a valid vehicle");
